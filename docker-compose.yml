@@ -1,0 +1,12 @@
+version: '2'
+services:
+  dop-match-ms:
+    build: .
+    command: python3 dop_app/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    depends_on:
+      - dop-match-db
+
+  dop-match-db:
+    image: postgres
