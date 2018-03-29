@@ -20,11 +20,12 @@ from rest_framework import routers
 
 
 router = routers.SimpleRouter()
-#router.register(r'match', UsersMatchList)
+router.register(r'match', UsersMatchList)
 router.register(r'accepted', UserAcceptedList)
 router.register(r'rejected', UserRejectedList)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^make-match/', make_match),
+    url(r'^make-match/$', make_match),
+    url(r'^make-match/(?P<pk>[0-9]+)$', listMatchUser),
 ]
